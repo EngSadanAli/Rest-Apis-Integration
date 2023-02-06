@@ -16,8 +16,6 @@ class _PhotossState extends State<Photoss> {
   Future<List<Photos>> getPhotos ()async{
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos')) ;
     var data = jsonDecode(response.body.toString());
-
-    print(data);
     if(response.statusCode == 200){
       for(Map i in data){
         Photos photos = Photos(title: i['title'], url: i['url'] , id: i['id']);
